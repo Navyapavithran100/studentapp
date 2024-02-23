@@ -16,16 +16,16 @@ const Signup = () => {
 
   const submit = () => {
     axios
-      .post("http://localhost:4002/ps", {
-        name: data.name,
-        age: data.Age,
-        department: data.Department
+      .post("http://localhost:4000/student", {
+        student_name: data.name,
+        student_age: data.age,
+         student_department: data.department
       })
       .then(() => {
         alert("New entry created successfully");
       })
       .catch(() => {
-        AudioListener("error saving data");
+        alert("error saving data");
       });
   }
   return (
@@ -33,9 +33,9 @@ const Signup = () => {
       <h1>Login Form</h1>
       <TextField variant='outlined' label='Name' name='name' onChange={inputHandler} />&nbsp;
       <br /><br />
-      <TextField variant='filled' label='Age' name='Age' onChange={inputHandler} />&nbsp;
+      <TextField variant='filled' label='Age' name='age' onChange={inputHandler} />&nbsp;
       <br /><br />
-      <TextField variant='standard' label='Department' name='Department' onChange={inputHandler} />
+      <TextField variant='standard' label='Department' name='department' onChange={inputHandler} />
       <br /><br />
       <Button variant='contained' onClick={submit}>Submit</Button>
     </div>
